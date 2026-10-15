@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa sobre seletores</title>
+    <style>
+        *{
+            background-color: rgb(218, 201, 236);
+        }
+        .titulos{
+            background-color: rgb(198, 103, 245);
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .tituloPrincipal{
+            background-color: rgb(161, 68, 249);
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .paragrafo b{
+            color: rgb(107, 7, 201);
+        }
+        .codigos{
+            background-color:purple ;
+            color: azure;
+            text-align: left;
+            border: 1;
+        }
+        .codigosHead{
+            background-color: purple;
+            color: azure;
+            text-align: left;
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+<body>
+    <h1 class="tituloPrincipal">Guia CSS</h1>
+    <h1 class="titulos">Seletor de atributo</h1>
+    <p class="paragrafo"><b>Utilização:</b> seleciona elementos que possuem determinado atributo HTML ou um atributo com um valor específico. É útil para personalizar campos de formulário e links.</p>
+    <p class="paragrafo"><b>Exemplo de uso:</b></p>
+    <p class="codigos">/* Seleciona campos que possuem o atributo required */<br>
+                        input[required] { <br>
+                        border: 2px solid red;<br>
+                        }  <br>     
+
+                        /* Seleciona links que abrem em nova aba */ <br>
+                        a[target="_blank"] { <br>
+                        color: purple;}</p> <br>
+    <p class="paragrafo"><b>Resultado:</b> campos obrigatórios terão borda vermelha e links com target="_blank" terão texto roxo.</p>
+    <h1 class="titulos">Seletor descendente</h1>
+    <p class="paragrafo"><b>Utilização:</b> seleciona elementos que estão dentro de outro elemento, em qualquer nível da hierarquia, não apenas como filhos diretos. </p>
+    <p class="paragrafo"><b>Exemplo de uso:</b></p>
+    <p class="paragrafo"><b>Head:</b></p>
+    <p class="codigosHead">article p { <br>
+  color: #176b45;<br>
+    }<br> </p>
+    <p class="paragrafo"><b>Body:</b></p>
+    <p class="codigos"> <p class="codigos">
+&lt;article&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;Este parágrafo será verde.&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Este também será verde.&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/article&gt;
+</p>
+<p class="paragrafo"><b>Resultado:</b> todos os parágrafos dentro de article serão verdes, inclusive os que estiverem dentro de outros elementos.</p>
+    <h1 class="titulos">Seletor filho direto</h1>
+    <p class="paragrafo"><b>Utilização:</b> seleciona somente os elementos que são filhos imediatos de outro elemento. Não inclui elementos que estejam em níveis mais profundos. </p>
+    <p class="paragrafo"><b>Exemplo de uso:</b></p>
+    <p class="paragrafo"><b>Head:</b></p>
+    <p class="codigosHead"> section > p { <br>
+  font-weight: bold; <br>
+}</p>
+     <p class="paragrafo"><b>Body:</b></p>
+       <p class="codigos">
+        <p class="codigos">
+&lt;section&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;Este parágrafo ficará em negrito.&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Este não será selecionado por essa regra.&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/section&gt;
+</p>
+<p class="paragrafo"><b>Resultado:</b> apenas o primeiro parágrafo será selecionado, pois é filho direto de section.</p>
+<h1 class="titulos">Seletor adjacente direto</h1>
+<p class="paragrafo"><b>Utilização:</b> seleciona o elemento B quando ele aparece imediatamente depois do elemento A e ambos possuem o mesmo elemento pai. </p>
+<p class="paragrafo"><b>Exemplo de uso:</b></p>
+<p class="paragrafo"><b>Head:</b></p>
+<p class="codigosHead"> h2 + p { <br>
+  color: #b45309; <br>
+} <br>
+<p class="paragrafo"><b>Body:</b></p>
+       <p class="codigos">
+&lt;h2&gt;Título&lt;/h2&gt;<br>
+&lt;p&gt;Este parágrafo será selecionado.&lt;/p&gt;<br>
+&lt;p&gt;Este não será selecionado por essa regra.&lt;/p&gt;
+</p>
+<p class="paragrafo"><b>Resultado:</b> somente o primeiro parágrafo após o título terá a cor indicada.</p>
+<h1 class="titulos">Seletor de irmãos gerais</h1>
+<p class="paragrafo"><b>Utilização:</b> eleciona todos os elementos B que aparecem depois de A e compartilham o mesmo elemento pai. Diferentemente do seletor adjacente, não precisam estar imediatamente um após o outro. </p>
+<p class="paragrafo"><b>Exemplo de uso:</b></p>
+<p class="paragrafo"><b>Head:</b></p>
+<p class="codigosHead"> h2 + p { <br>
+  background-color: #fff0c2; <br>
+  <p class="paragrafo"><b>Body:</b></p>
+  <p class="codigos">
+&lt;div&gt;<br>
+&nbsp;&nbsp;&lt;h2&gt;Título&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;Este será selecionado.&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;span&gt;Elemento intermediário&lt;/span&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;Este também será selecionado.&lt;/p&gt;<br>
+&lt;/div&gt; <br> }
+</p><br></p>
+<p class="paragrafo"><b>Resultado:</b> os dois parágrafos posteriores ao título terão fundo amarelo-claro.</p>
+<h1 class="titulos">Seletor de pseudoclasse</h1>
+<p class="paragrafo"><b>Utilização:</b> aplica estilos quando um elemento está em determinado estado ou ocupa uma posição específica. Pseudoclasses são escritas com dois-pontos, como :hover, :focus e :first-child. </p>
+<p class="paragrafo"><b>Exemplo de uso:</b></p>
+<p class="codigos">button:hover { <br>
+  background-color: #173b67;<br>
+  color: white;<br>
+} <br>
+
+input:focus { <br>
+  outline: 2px solid #7048a8; <br>
+} <br></p>
+<h1 class="titulos">Seletor de pseudoelemento</h1>
+<p class="paragrafo"><b>Utilização:</b> stiliza uma parte específica de um elemento ou cria um detalhe visual sem precisar adicionar outro elemento ao HTML. A forma moderna usa dois-pontos duplos. </p>
+<p class="paragrafo"><b>Exemplo de uso:</b></p>
+<p class="paragrafo"><b>Head:</b></p>
+<p class="codigosHead">p::first-letter { <br>
+  font-size: 2em; <br>
+  color: #7048a8; <br>
+  font-weight: bold; <br>
+} <br>
+
+.destaque::before { <br>
+  content: "★ "; <br>
+  color: #b45309; <br>
+} <br>
+</p>
+<p class="paragrafo"><b>Body:</b></p>
+<p class="codigos">
+&lt;p&gt;Este parágrafo terá a primeira letra destacada.&lt;/p&gt;<br>
+&lt;p class="destaque"&gt;Este texto terá uma estrela antes.&lt;/p&gt;
+</p>
+<p class="paragrafo"><b>Resultado:</b> a primeira letra do parágrafo fica maior e roxa; no segundo exemplo, uma estrela aparece antes do texto.</p>
+</body>
+</html>
